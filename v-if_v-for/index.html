@@ -10,6 +10,9 @@
             <div v-if="status"><!--Só renderizo o array se a condição for verdadeira-->
                 <p v-for="anime in array">{{anime}}</p>
             </div>
+            <div v-show="status">
+                <p v-for="anime in array">{{anime}}</p>
+            </div>
         </div>
     </body>
     <script>
