@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>V-BIND</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p v-bind:title="mensagem">Atributo paragrafo</p>
+        </div>
+        <div id="appEstilo">
+            <span v-bind:style="cor">Verde</span><!--Com o bind é possível alterar manipular os atributos das
+            tags-->
+            <div v-bind:style="borda"></div>
+        </div>
+    </body>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {mensagem:"Alguma mensagem"},
+        });
+
+        var appEstilo = new Vue({
+            el: "#appEstilo",
+            data: {
+                cor:"background-color:green",
+                borda:"border-radius: 40px; width: 400px; height: 400px; background-color:green"
+            }
+        });
+    </script>
+</html>
