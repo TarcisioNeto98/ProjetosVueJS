@@ -13,12 +13,17 @@
             <div v-show="status">
                 <p v-for="anime in array">{{anime}}</p>
             </div>
+            <br/><br/>
+            <form>
+                <input v-for= "i in id" type="text" v-model="array[i]"/>
+            </form>
         </div>
     </body>
     <script>
         var app = new Vue({
             el: "#app",
             data: {
+                id:[0, 1, 2],
                 mensagem:"Hello World",
                 status: true,
                 array: ['Pokemon', 'Dragon Ball', 'Saint Seiya']
