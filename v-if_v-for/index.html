@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Diretivas v-if e v-for</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div v-if="status"><!--Só renderizo o array se a condição for verdadeira-->
+                <p v-for="anime in array">{{anime}}</p>
+            </div>
+        </div>
+    </body>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                mensagem:"Hello World",
+                status: true,
+                array: ['Pokemon', 'Dragon Ball', 'Saint Seiya']
+            }
+        });
+    </script>
+</html>
