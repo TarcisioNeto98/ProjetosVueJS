@@ -1,4 +1,4 @@
 var app = new Vue({
     el: "#app",
-    data: {mensagem:"Hello World"}
+    data: {mensagem:'<p>Resident<br/> Evil</p>'}
 });

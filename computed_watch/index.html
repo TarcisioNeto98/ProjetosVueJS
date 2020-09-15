@@ -7,13 +7,8 @@
     </head>
     <body>
         <div id="app">
-            {{mensagem}}
+            <div v-html="mensagem">{{mensagem}}</div>
         </div>
     </body>
-    <script>
-        var app = new Vue({
-            el: "#app",
-            data: {mensagem:"Hello World"}
-        });
-    </script>
+    <script type="text/javascript" src="js/index.js"></script>
 </html>
