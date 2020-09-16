@@ -9,16 +9,16 @@ var app = new Vue({
         nome:'',
         email: ''
     },
-
-    computed:{
-        getFullLogin: function(){
-            return this.nome + ' ' + this.email;
-        }
-    },
-
     methods:{
+        show: function(obj){
+            alert(JSON.parse(obj).nome);
+        },
+        getFullLogin: function(){
+            return {nome: this.nome, email: this.email};
+        },
         connect: function(){
-            var obj = {login: this.getFullLogin()};
+            var data = this.getFullLogin();
+            axios.post('http://localhost:3000/', data).catch(e => console.error(e));
         }
     }
 });
