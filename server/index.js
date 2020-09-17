@@ -1,3 +1,11 @@
+function busca(valor, array){
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].nome === valor)
+            return array[i].nome;
+    }
+    return {nome:null, descricao:'Usuário não encontrado!'};
+}
+
 var express = require('express');
 var dados = [];
 var app = express();
@@ -10,6 +18,11 @@ app.use(bodyParser.json());
 app.post('/', function(req, res){
     dados.push(req.body);
     console.log(dados);
+});
+
+app.get('/', function(req, res){
+    var item = req.body.nome;
+    res.json(busca(item, dados));
 });
 
 app.listen('3000', function(){

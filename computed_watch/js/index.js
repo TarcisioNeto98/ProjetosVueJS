@@ -7,7 +7,21 @@ var app = new Vue({
     el:"#app",
     data:{
         nome:'',
-        email: ''
+        email: '',
+        login: ''
+    },
+    computed:{
+        getLogin: function(){
+            return this.login;
+        }
+    },
+    watch:{
+        nome: function(old, newValue){
+            this.login = newValue + ' ' + this.email;
+        },
+        email: function(old, newValues){
+            this.login = this.nome + ' ' + newValues;
+        }
     },
     methods:{
         show: function(obj){
@@ -18,7 +32,14 @@ var app = new Vue({
         },
         connect: function(){
             var data = this.getFullLogin();
-            axios.post('http://localhost:3000/', data).catch(e => console.error(e));
+            var nomeValue = document.querySelector('input[type="text"]').value;
+            var emailValue = document.querySelector('input[type="email"]').value;
+            this.email = emailValue;
+            this.nome = nomeValue;
+            axios.post('http://localhost:3000/', this.getFullLogin()).catch(e => console.error(e));
+        },
+        buscar: function(){
+            //axios.post('http://localhost:3000/', this.getFullLogin()).catch(e => console.error(e));
         }
     }
 });

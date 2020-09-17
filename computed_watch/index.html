@@ -8,11 +8,14 @@
     </head>
     <body>
         <div id="app">
-            <form method="POST" v-on:submit="connect">
-                <input type="text" v-model = "nome"/><br/><br/>
-                <input type="email" v-model = "email"/><br/><br/>
-                <input type="submit"/>
+            <form method="POST">
+                <input type="text"/><br/><br/>
+                <input type="email"/><br/><br/>
+                <input type="button" v-on:click="connect" value="Enviar"/>
+                <input type="button" value="Buscar"/>
             </form>
+            <p>O login é:</p>
+            <p>{{getLogin}}</p>
         </div>
     </body>
     <script type="text/javascript" src="js/index.js"></script>
